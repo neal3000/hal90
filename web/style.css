@@ -1,0 +1,179 @@
+/* Combine all your existing CSS files here */
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    background-color: black;
+    color: white;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+/* Your existing App.css */
+.action-ribbon {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: 20px solid transparent;
+    border-image-slice: 1;
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.action-ribbon.record {
+    border: 20px solid red;
+    animation: 2s blink linear infinite;
+}
+
+.action-ribbon.processing {
+    border: 20px solid;
+    border-image: conic-gradient(from var(--angle), rgb(125, 125, 125), rgb(255, 255, 255)) 1;
+    animation: 5s rotate linear infinite;
+}
+
+.action-ribbon.rainbow {
+    border: 20px solid;
+    border-image: conic-gradient(from var(--angle), rgb(255, 110, 110), rgb(255, 255, 110), rgb(110, 255, 110), rgb(110, 255, 255), rgb(110, 110, 255), rgb(255, 110, 255), rgb(255, 110, 110)) 1;
+    animation: 5s rotate linear infinite;
+}
+
+.action-ribbon.idle {
+    border: 20px solid;
+    border-image: conic-gradient(from var(--angle), rgb(140, 0, 255), rgb(71, 0, 177), #00bbff, #00ffa8, rgb(140, 0, 255)) 1;
+    animation: 10s rotate linear infinite;
+}
+
+@keyframes blink {
+    10% { border: 20px solid red; }
+    50% { border: 20px solid transparent; }
+    100% { border: 20px solid red; }
+}
+
+@keyframes rotate {
+    to { --angle: 360deg; }
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* Your existing Faces.css, StatusMessage.css, WordsContainer.css, etc. */
+.faces-container {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.face-filter-hue {
+    filter: hue-rotate(100deg);
+}
+
+.face-float-animation {
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.status-message-container {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.status-message-text {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4.2em;
+}
+
+.llm-output-container {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.4em;
+    margin: 0.2em;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.llm-output-text {
+    font-weight: normal;
+    font-style: normal;
+}
+
+.llm-output-text p {
+    margin: 0;
+}
+
+.llm-output-recorded {
+    color: rgb(175, 175, 175);
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.reaction-image-container {
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    width: 80px;
+    height: 80px;
+}
+
+.reaction-image {
+    height: 80px;
+}
+
+.face-stack {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.face-base {
+    height: 100%;
+    width: 100%;
+}
+
+.mouth-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Font faces */
+@font-face {
+    font-display: swap;
+    font-family: 'Instrument Serif';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/instrument-serif/instrument-serif-v4-latin-regular.woff2') format('woff2');
+}
+
+/* Add all your other font faces and styles */

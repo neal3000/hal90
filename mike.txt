@@ -1,0 +1,61 @@
+09:47:37 - config - [INFO] - Loading environment from /home/hal/hal/voice-kiosk/.env
+09:47:37 - config - [INFO] - Ollama URL: http://localhost:11434
+09:47:37 - config - [INFO] - Agent model: qwen2.5:3b
+09:47:37 - config - [INFO] - Conversation model: gemma2:2b
+09:47:37 - config - [INFO] - Whisper model: tiny.en on cpu (int8)
+09:47:37 - config - [INFO] - Wake word: 'hal'
+09:47:37 - config - [INFO] - Wake word model path: ./models/vosk-model-small-en-us-0.15
+09:47:37 - config - [INFO] - Audio config: 16000Hz, 1 channel(s)
+09:47:37 - config - [INFO] - Recording: max 30s, silence threshold 2000
+09:47:37 - config - [INFO] - Recordings directory: /tmp/voice_kiosk_recordings
+09:47:37 - config - [INFO] - TTS engine: pyttsx3, rate: 150, volume: 0.9
+09:47:37 - config - [INFO] - App config: Port 8080, Debug: False, Log level: INFO
+09:47:37 - config - [INFO] - Screensaver: 15s timeout, 180s engagement
+09:47:37 - config - [INFO] - Agent: max 5 iterations, 60s timeout
+09:47:37 - config - [INFO] - UI: 1024x768, Kiosk mode: True
+09:47:37 - config - [INFO] - Configuration loaded successfully
+09:47:37 - __main__ - [INFO] - Found 13 audio devices
+
+Press Enter to test microphone...Expression 'paInvalidSampleRate' failed in 'src/hostapi/alsa/pa_linux_alsa.c', line: 2048
+Expression 'PaAlsaStreamComponent_InitialConfigure( &self->capture, inParams, self->primeBuffers, hwParamsCapture, &realSr )' failed in 'src/hostapi/alsa/pa_linux_alsa.c', line: 2718
+Expression 'PaAlsaStream_Configure( stream, inputParameters, outputParameters, sampleRate, framesPerBuffer, &inputLatency, &outputLatency, &hostBufferSizeMode )' failed in 'src/hostapi/alsa/pa_linux_alsa.c', line: 2842
+09:47:43 - __main__ - [ERROR] - Microphone test error: Error opening InputStream: Invalid sample rate [PaErrorCode -9997]
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/test_wake_and_record.py", line 104, in test_microphone
+    recording = sd.rec(
+        int(duration * samplerate),
+    ...<3 lines>...
+        device=device_index
+    )
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/sounddevice.py", line 279, in rec
+    ctx.start_stream(InputStream, samplerate, ctx.input_channels,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     ctx.input_dtype, callback, blocking, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/sounddevice.py", line 2634, in start_stream
+    self.stream = StreamClass(samplerate=samplerate,
+                  ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                              channels=channels,
+                              ^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+                              finished_callback=self.finished_callback,
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              **kwargs)
+                              ^^^^^^^^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/sounddevice.py", line 1440, in __init__
+    _StreamBase.__init__(self, kind='input', wrap_callback='array',
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         **_remove_self(locals()))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/sounddevice.py", line 909, in __init__
+    _check(_lib.Pa_OpenStream(self._ptr, iparameters, oparameters,
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              samplerate, blocksize, stream_flags,
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              callback_ptr, userdata),
+                              ^^^^^^^^^^^^^^^^^^^^^^^^
+           f'Error opening {self.__class__.__name__}')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/sounddevice.py", line 2804, in _check
+    raise PortAudioError(errormsg, err)
+sounddevice.PortAudioError: Error opening InputStream: Invalid sample rate [PaErrorCode -9997]

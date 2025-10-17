@@ -1,0 +1,41 @@
+19:30:05 - [INFO] - Vosk model loaded successfully
+19:30:05 - [INFO] - Improved detector initialized: amp=300.0x, threshold=0.6
+19:30:05 - [INFO] - Wake Word Detector initialized (word: 'hal', amp: 300.0x, threshold: 0.6)
+19:30:05 - [ERROR] - Subsystem initialization completed with 2 error(s):
+19:30:05 - [ERROR] -   - Failed to initialize Ollama client: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+19:30:05 - [ERROR] -   - Failed to initialize TTS engine: This means you probably do not have eSpeak or eSpeak-ng installed!
+19:30:05 - [INFO] - ============================================================
+19:30:05 - [INFO] - Subsystem initialization complete. Ready: False
+19:30:05 - [INFO] - ============================================================
+19:30:05 - [ERROR] - Subsystem initialization failed!
+19:30:05 - [ERROR] - Fatal error during initialization: Failed to initialize subsystems
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/main_new.py", line 102, in initialize_application
+    raise RuntimeError("Failed to initialize subsystems")
+
+
+
+19:31:22 - [INFO] - State transition complete: now in THINKING
+19:31:22 - [INFO] - Phase 1: Running agent loop...
+19:31:22 - [INFO] - Starting agent loop...
+19:31:22 - [ERROR] - Error in agent loop: 'NoneType' object has no attribute 'generate_tools_prompt'
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/main_new.py", line 319, in run_agent_loop
+    tools_description = tool_processor.generate_tools_prompt()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'generate_tools_prompt'
+19:31:22 - [INFO] - 127.0.0.1 - - [2025-10-16 19:31:22] "GET /assets/faces/smile_eyes_opened.png HTTP/1.1" 200 38956 0.001051
+19:31:22 - [INFO] - Agent loop complete. Result: Error in agent processing: 'NoneType' object has no attribute 'generate_tools_prompt'
+19:31:22 - [INFO] - Phase 2: Generating conversation response...
+19:31:22 - [INFO] - Generating conversation response...
+19:31:22 - [INFO] - State transition: THINKING -> SPEAKING
+19:31:22 - [INFO] - Executing 1 callback(s) for state SPEAKING
+19:31:22 - [INFO] - Entered SPEAKING state
+19:31:22 - [INFO] - State transition complete: now in SPEAKING
+19:31:22 - [ERROR] - Error generating conversation response: 'NoneType' object has no attribute 'generate_tools_prompt'
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/main_new.py", line 356, in generate_conversation_response
+    tools_description = tool_processor.generate_tools_prompt()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'generate_tools_prompt'
+

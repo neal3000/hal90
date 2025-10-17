@@ -1,0 +1,648 @@
+
+2025-10-16 09:38:28 - root - [INFO] - logging_config.py:61 - ================================================================================
+2025-10-16 09:38:28 - root - [INFO] - logging_config.py:62 - Voice Kiosk Application Starting - 2025-10-16 09:38:28
+2025-10-16 09:38:28 - root - [INFO] - logging_config.py:63 - Log level: INFO
+2025-10-16 09:38:28 - root - [INFO] - logging_config.py:64 - ================================================================================
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:27 - Initializing Eel framework
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:688 - ================================================================================
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:689 - VOICE KIOSK APPLICATION STARTING
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:690 - ================================================================================
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:695 - Main event loop created: <_UnixSelectorEventLoop running=False closed=False debug=False>
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:705 - Starting event loop in background thread
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:711 - Event loop thread started
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:660 - Starting async_main()
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:73 - ================================================================================
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:74 - VOICE KIOSK APPLICATION INITIALIZATION
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:75 - ================================================================================
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:79 - Validating configuration...
+2025-10-16 09:38:28 - config - [INFO] - config.py:96 - Validating configuration...
+2025-10-16 09:38:28 - config - [INFO] - config.py:109 - Recordings directory /tmp/voice_kiosk_recordings is writable
+2025-10-16 09:38:28 - config - [INFO] - config.py:129 - Configuration validation passed
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:81 - Configuration validation passed
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:84 - Creating event loop coordinator...
+2025-10-16 09:38:28 - event_loop - [INFO] - event_loop.py:32 - Initializing EventLoopCoordinator
+2025-10-16 09:38:28 - event_loop - [INFO] - event_loop.py:43 - EventLoopCoordinator initialized
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:86 - Event loop coordinator created
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:136 - Registering state callbacks...
+2025-10-16 09:38:28 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state IDLE: on_idle
+2025-10-16 09:38:28 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state RECORDING: on_recording
+2025-10-16 09:38:28 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state THINKING: on_thinking
+2025-10-16 09:38:28 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state SPEAKING: on_speaking
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:163 - State callbacks registered
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:92 - Creating subsystem manager...
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:22 - Initializing SubsystemManager
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:38 - SubsystemManager initialized
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:94 - Subsystem manager created
+2025-10-16 09:38:28 - root - [INFO] - main_new.py:97 - Initializing subsystems...
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:42 - ============================================================
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:43 - Starting subsystem initialization
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:44 - ============================================================
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:88 - Initializing Ollama client...
+2025-10-16 09:38:28 - subsystem_manager - [ERROR] - subsystem_manager.py:108 - Failed to initialize Ollama client: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/subsystem_manager.py", line 92, in _initialize_ollama
+    self.ollama_client = OllamaClient(
+                         ~~~~~~~~~~~~^
+        base_url=self.config.OLLAMA_URL,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        timeout=self.config.OLLAMA_TIMEOUT
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:113 - Initializing Tool Processor...
+2025-10-16 09:38:28 - tool_processor - [INFO] - tool_processor.py:14 - Initializing ToolProcessor
+2025-10-16 09:38:28 - tool_processor - [INFO] - tool_processor.py:20 - Loading tools from tools directory...
+2025-10-16 09:38:28 - tool_processor - [INFO] - tool_processor.py:30 - Found 4 tool file(s)
+2025-10-16 09:38:28 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: get_weather - return the weather for a certain city
+2025-10-16 09:38:28 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: timenow - return the current date and time
+2025-10-16 09:38:28 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: finished - call this when you have completed the user's request
+2025-10-16 09:38:28 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: get_fortune - get a random fortune or quote
+2025-10-16 09:38:28 - tool_processor - [INFO] - tool_processor.py:60 - Tool loading complete: 4 tool(s) loaded
+2025-10-16 09:38:28 - tool_processor - [INFO] - tool_processor.py:16 - ToolProcessor initialized with 4 tools
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:118 - Tool Processor initialized with 4 tools
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: get_weather
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: timenow
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: finished
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: get_fortune
+2025-10-16 09:38:28 - subsystem_manager - [INFO] - subsystem_manager.py:135 - Initializing Whisper STT service...
+2025-10-16 09:38:28 - whisper_service - [INFO] - whisper_service.py:25 - Initializing WhisperService with model: tiny.en
+2025-10-16 09:38:28 - whisper_service - [INFO] - whisper_service.py:38 - Loading Whisper model: tiny.en
+2025-10-16 09:38:29 - whisper_service - [INFO] - whisper_service.py:46 - Whisper model loaded successfully
+2025-10-16 09:38:29 - whisper_service - [INFO] - whisper_service.py:34 - WhisperService initialized (device: cpu, compute_type: int8)
+2025-10-16 09:38:29 - subsystem_manager - [INFO] - subsystem_manager.py:145 - Whisper service initialized (model: tiny.en)
+2025-10-16 09:38:29 - subsystem_manager - [INFO] - subsystem_manager.py:158 - Initializing TTS engine...
+2025-10-16 09:38:29 - subsystem_manager - [ERROR] - subsystem_manager.py:188 - Failed to initialize TTS engine: This means you probably do not have eSpeak or eSpeak-ng installed!
+Traceback (most recent call last):
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/__init__.py", line 22, in init
+    eng = _activeEngines[driverName]
+          ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/weakref.py", line 136, in __getitem__
+    o = self.data[key]()
+        ~~~~~~~~~^^^^^
+KeyError: None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/subsystem_manager.py", line 163, in _initialize_tts
+    self.tts_engine = pyttsx3.init()
+                      ~~~~~~~~~~~~^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/__init__.py", line 24, in init
+    eng = Engine(driverName, debug)
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/engine.py", line 59, in __init__
+    self.proxy = driver.DriverProxy(weakref.proxy(self), self.driver_name, debug)
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/driver.py", line 41, in __init__
+    self._module = importlib.import_module(f"pyttsx3.drivers.{driverName}")
+                   ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/drivers/espeak.py", line 15, in <module>
+    from . import _espeak
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/drivers/_espeak.py", line 61, in <module>
+    raise RuntimeError(msg)
+RuntimeError: This means you probably do not have eSpeak or eSpeak-ng installed!
+2025-10-16 09:38:29 - subsystem_manager - [INFO] - subsystem_manager.py:193 - Initializing Audio Recorder...
+2025-10-16 09:38:30 - audio_recorder - [INFO] - audio_recorder.py:33 - Initializing AudioRecorder
+2025-10-16 09:38:30 - audio_recorder - [INFO] - audio_recorder.py:49 - AudioRecorder initialized: 16000Hz, silence threshold: 2000
+2025-10-16 09:38:30 - subsystem_manager - [INFO] - subsystem_manager.py:207 - Audio Recorder initialized (16000Hz)
+2025-10-16 09:38:30 - subsystem_manager - [INFO] - subsystem_manager.py:220 - Initializing Wake Word Detector...
+2025-10-16 09:38:30 - wake_word_detector - [INFO] - wake_word_detector.py:28 - Initializing WakeWordDetector with model: models/vosk-model-small-en-us-0.15
+2025-10-16 09:38:30 - wake_word_detector - [INFO] - wake_word_detector.py:45 - Loading Vosk model from models/vosk-model-small-en-us-0.15
+2025-10-16 09:38:30 - root - [INFO] - main_new.py:719 - Starting Eel web interface...
+2025-10-16 09:38:30 - wake_word_detector - [INFO] - wake_word_detector.py:56 - Vosk model loaded successfully
+2025-10-16 09:38:30 - wake_word_detector - [INFO] - wake_word_detector.py:41 - WakeWordDetector initialized for word: 'hal'
+2025-10-16 09:38:30 - subsystem_manager - [INFO] - subsystem_manager.py:238 - Wake Word Detector initialized (word: 'hal')
+2025-10-16 09:38:30 - subsystem_manager - [ERROR] - subsystem_manager.py:67 - Subsystem initialization completed with 2 error(s):
+2025-10-16 09:38:30 - subsystem_manager - [ERROR] - subsystem_manager.py:69 -   - Failed to initialize Ollama client: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+2025-10-16 09:38:30 - subsystem_manager - [ERROR] - subsystem_manager.py:69 -   - Failed to initialize TTS engine: This means you probably do not have eSpeak or eSpeak-ng installed!
+2025-10-16 09:38:30 - subsystem_manager - [INFO] - subsystem_manager.py:80 - ============================================================
+2025-10-16 09:38:30 - subsystem_manager - [INFO] - subsystem_manager.py:81 - Subsystem initialization complete. Ready: False
+2025-10-16 09:38:30 - subsystem_manager - [INFO] - subsystem_manager.py:82 - ============================================================
+2025-10-16 09:38:30 - root - [ERROR] - main_new.py:101 - Subsystem initialization failed!
+2025-10-16 09:38:30 - root - [ERROR] - main_new.py:130 - Fatal error during initialization: Failed to initialize subsystems
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/main_new.py", line 102, in initialize_application
+    raise RuntimeError("Failed to initialize subsystems")
+RuntimeError: Failed to initialize subsystems
+2025-10-16 09:38:30 - root - [ERROR] - main_new.py:666 - Application initialization failed, exiting
+2025-10-16 09:38:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:30] "GET /index.html HTTP/1.1" 200 689 0.001034
+2025-10-16 09:38:31 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:31] "GET /style.css HTTP/1.1" 200 3973 0.002111
+2025-10-16 09:38:31 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:31] "GET /app.js HTTP/1.1" 200 4061 0.000968
+2025-10-16 09:38:31 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:31] "GET /eel.js HTTP/1.1" 200 6153 0.002187
+2025-10-16 09:38:31 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:31] "GET /favicon.ico HTTP/1.1" 404 882 0.007328
+2025-10-16 09:38:31 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:31] "GET /assets/faces/smile_eyes_opened.png HTTP/1.1" 200 38956 0.002700
+2025-10-16 09:38:36 - root - [INFO] - main_new.py:498 - Screen clicked in state: BOOT
+2025-10-16 09:38:36 - root - [INFO] - main_new.py:526 - Starting boot sequence...
+2025-10-16 09:38:36 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:36] "GET /assets/fonts/instrument-serif/instrument-serif-v4-latin-regular.woff2 HTTP/1.1" 404 940 0.000742
+2025-10-16 09:38:37 - root - [INFO] - main_new.py:541 - Generating boot greeting...
+2025-10-16 09:38:37 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:37] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.002091
+2025-10-16 09:38:37 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:37] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001576
+2025-10-16 09:38:37 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:37] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001136
+2025-10-16 09:38:37 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:37] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000641
+2025-10-16 09:38:37 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:37] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001108
+2025-10-16 09:38:37 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:37] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.002514
+2025-10-16 09:38:37 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:37] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000507
+2025-10-16 09:38:37 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:37] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000945
+2025-10-16 09:38:37 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:37] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000436
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.003015
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000633
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.003463
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000422
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001464
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000491
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001961
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001005
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.002087
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000507
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.002059
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000445
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.002485
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000503
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.002014
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000494
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001933
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000447
+2025-10-16 09:38:38 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:38] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.003467
+2025-10-16 09:38:40 - event_loop - [INFO] - event_loop.py:72 - State transition: BOOT -> IDLE
+2025-10-16 09:38:40 - event_loop - [INFO] - event_loop.py:135 - Executing 1 callback(s) for state IDLE
+2025-10-16 09:38:40 - root - [INFO] - main_new.py:140 - Entered IDLE state - starting wake word listener
+2025-10-16 09:38:40 - root - [INFO] - main_new.py:178 - Starting wake word listener...
+2025-10-16 09:38:40 - subsystem_manager - [INFO] - subsystem_manager.py:259 - Starting wake word listener...
+2025-10-16 09:38:40 - event_loop - [INFO] - event_loop.py:159 - Creating background task: wake_word_listener
+2025-10-16 09:38:40 - subsystem_manager - [INFO] - subsystem_manager.py:265 - Wake word listener started
+2025-10-16 09:38:40 - root - [INFO] - main_new.py:205 - Wake word listener started successfully
+2025-10-16 09:38:40 - event_loop - [INFO] - event_loop.py:87 - State transition complete: now in IDLE
+2025-10-16 09:38:40 - root - [INFO] - main_new.py:569 - Boot sequence complete
+2025-10-16 09:38:40 - wake_word_detector - [INFO] - wake_word_detector.py:82 - Starting wake word detection...
+2025-10-16 09:38:40 - wake_word_detector - [INFO] - wake_word_detector.py:87 - Opening audio stream (rate: 16000Hz)
+2025-10-16 09:38:40 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:38:40] "GET /assets/faces/smile_eyes_opened.png HTTP/1.1" 200 38956 0.003236
+2025-10-16 09:38:40 - wake_word_detector - [INFO] - wake_word_detector.py:97 - Wake word detector listening...
+2025-10-16 09:39:16 - root - [INFO] - main_new.py:498 - Screen clicked in state: IDLE
+2025-10-16 09:39:16 - event_loop - [INFO] - event_loop.py:72 - State transition: IDLE -> RECORDING
+2025-10-16 09:39:16 - event_loop - [INFO] - event_loop.py:135 - Executing 1 callback(s) for state RECORDING
+2025-10-16 09:39:16 - root - [INFO] - main_new.py:145 - Entered RECORDING state
+2025-10-16 09:39:16 - subsystem_manager - [INFO] - subsystem_manager.py:276 - Stopping wake word listener...
+2025-10-16 09:39:16 - wake_word_detector - [INFO] - wake_word_detector.py:160 - Stopping wake word detector...
+2025-10-16 09:39:16 - wake_word_detector - [INFO] - wake_word_detector.py:152 - Audio stream closed
+2025-10-16 09:39:16 - wake_word_detector - [INFO] - wake_word_detector.py:156 - Wake word detection stopped
+2025-10-16 09:39:16 - event_loop - [INFO] - event_loop.py:181 - Background task 'wake_word_listener' completed successfully
+2025-10-16 09:39:16 - wake_word_detector - [INFO] - wake_word_detector.py:166 - Wake word detector stopped
+2025-10-16 09:39:16 - subsystem_manager - [INFO] - subsystem_manager.py:279 - Wake word listener stopped
+2025-10-16 09:39:16 - event_loop - [INFO] - event_loop.py:87 - State transition complete: now in RECORDING
+2025-10-16 09:39:16 - root - [INFO] - main_new.py:217 - Starting audio recording process...
+2025-10-16 09:39:16 - root - [INFO] - main_new.py:221 - Recording audio...
+2025-10-16 09:39:16 - subsystem_manager - [INFO] - subsystem_manager.py:293 - Starting audio recording...
+2025-10-16 09:39:16 - audio_recorder - [INFO] - audio_recorder.py:57 - Starting audio recording...
+2025-10-16 09:39:16 - audio_recorder - [INFO] - audio_recorder.py:58 - Settings: sample_rate=16000, silence_threshold=2000, silence_duration=1.5s, max_duration=30s
+2025-10-16 09:39:16 - audio_recorder - [INFO] - audio_recorder.py:67 - Output file: /tmp/voice_kiosk_recordings/recording_1760582356.wav
+2025-10-16 09:39:16 - audio_recorder - [INFO] - audio_recorder.py:76 - Opening audio stream...
+2025-10-16 09:39:16 - audio_recorder - [INFO] - audio_recorder.py:84 - Recording started - speak now...
+2025-10-16 09:39:17 - audio_recorder - [INFO] - audio_recorder.py:111 - Silence detected (RMS: 64 < 2000)
+2025-10-16 09:39:18 - audio_recorder - [INFO] - audio_recorder.py:115 - Silence duration threshold reached (1.53s), stopping recording
+2025-10-16 09:39:18 - audio_recorder - [INFO] - audio_recorder.py:131 - Recording stopped
+2025-10-16 09:39:18 - audio_recorder - [INFO] - audio_recorder.py:155 - Saving audio to /tmp/voice_kiosk_recordings/recording_1760582356.wav
+2025-10-16 09:39:18 - audio_recorder - [INFO] - audio_recorder.py:161 - Audio file saved successfully: /tmp/voice_kiosk_recordings/recording_1760582356.wav
+2025-10-16 09:39:18 - audio_recorder - [INFO] - audio_recorder.py:136 - Audio saved: /tmp/voice_kiosk_recordings/recording_1760582356.wav (7 chunks)
+2025-10-16 09:39:18 - audio_recorder - [INFO] - audio_recorder.py:147 - Recording cleanup complete
+2025-10-16 09:39:18 - subsystem_manager - [INFO] - subsystem_manager.py:296 - Audio recording complete: /tmp/voice_kiosk_recordings/recording_1760582356.wav
+2025-10-16 09:39:18 - root - [INFO] - main_new.py:229 - Audio recorded successfully: /tmp/voice_kiosk_recordings/recording_1760582356.wav
+2025-10-16 09:39:18 - event_loop - [INFO] - event_loop.py:72 - State transition: RECORDING -> PROCESSING_RECORDING
+2025-10-16 09:39:18 - event_loop - [INFO] - event_loop.py:135 - Executing 0 callback(s) for state PROCESSING_RECORDING
+2025-10-16 09:39:18 - event_loop - [INFO] - event_loop.py:87 - State transition complete: now in PROCESSING_RECORDING
+2025-10-16 09:39:18 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:39:18] "GET /assets/faces/smile_eyes_opened.png HTTP/1.1" 200 38956 0.001521
+2025-10-16 09:39:18 - root - [INFO] - main_new.py:241 - Transcribing audio...
+2025-10-16 09:39:18 - subsystem_manager - [INFO] - subsystem_manager.py:315 - Transcribing audio file: /tmp/voice_kiosk_recordings/recording_1760582356.wav
+2025-10-16 09:39:18 - whisper_service - [INFO] - whisper_service.py:61 - Transcribing audio file: /tmp/voice_kiosk_recordings/recording_1760582356.wav
+2025-10-16 09:39:18 - faster_whisper - [INFO] - transcribe.py:855 - Processing audio with duration 00:01.792
+2025-10-16 09:39:18 - whisper_service - [INFO] - whisper_service.py:104 - Detected language: en (probability: 1.00)
+2025-10-16 09:39:22 - root - [INFO] - main_new.py:498 - Screen clicked in state: PROCESSING_RECORDING
+2025-10-16 09:39:24 - root - [INFO] - main_new.py:498 - Screen clicked in state: PROCESSING_RECORDING
+2025-10-16 09:39:32 - root - [INFO] - main_new.py:498 - Screen clicked in state: PROCESSING_RECORDING
+2025-10-16 09:39:35 - root - [INFO] - main_new.py:498 - Screen clicked in state: PROCESSING_RECORDING
+2025-10-16 09:39:36 - whisper_service - [INFO] - whisper_service.py:116 - Transcribed 0 segment(s), total length: 0 chars
+2025-10-16 09:39:36 - whisper_service - [INFO] - whisper_service.py:77 - Transcription complete: ''
+2025-10-16 09:39:36 - subsystem_manager - [INFO] - subsystem_manager.py:318 - Transcription complete: ''
+2025-10-16 09:39:36 - root - [ERROR] - main_new.py:245 - Transcription failed - no text returned
+2025-10-16 09:39:36 - root - [ERROR] - main_new.py:266 - Recording error: Could not understand audio
+2025-10-16 09:39:36 - event_loop - [INFO] - event_loop.py:72 - State transition: PROCESSING_RECORDING -> IDLE
+2025-10-16 09:39:36 - event_loop - [INFO] - event_loop.py:135 - Executing 1 callback(s) for state IDLE
+2025-10-16 09:39:36 - root - [INFO] - main_new.py:140 - Entered IDLE state - starting wake word listener
+2025-10-16 09:39:36 - root - [INFO] - main_new.py:178 - Starting wake word listener...
+2025-10-16 09:39:36 - subsystem_manager - [INFO] - subsystem_manager.py:259 - Starting wake word listener...
+2025-10-16 09:39:36 - event_loop - [INFO] - event_loop.py:159 - Creating background task: wake_word_listener
+2025-10-16 09:39:36 - subsystem_manager - [INFO] - subsystem_manager.py:265 - Wake word listener started
+2025-10-16 09:39:36 - root - [INFO] - main_new.py:205 - Wake word listener started successfully
+2025-10-16 09:39:36 - event_loop - [INFO] - event_loop.py:87 - State transition complete: now in IDLE
+2025-10-16 09:39:36 - wake_word_detector - [INFO] - wake_word_detector.py:82 - Starting wake word detection...
+2025-10-16 09:39:36 - wake_word_detector - [INFO] - wake_word_detector.py:87 - Opening audio stream (rate: 16000Hz)
+2025-10-16 09:39:36 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:39:36] "GET /assets/faces/smile_eyes_opened.png HTTP/1.1" 200 38956 0.002916
+2025-10-16 09:39:36 - wake_word_detector - [INFO] - wake_word_detector.py:97 - Wake word detector listening...
+2025-10-16 09:42:16 - root - [INFO] - main_new.py:735 - Shutting down event loop...
+2025-10-16 09:42:16 - root - [INFO] - main_new.py:707 - Event loop stopped
+2025-10-16 09:42:16 - root - [INFO] - main_new.py:738 - Application exit
+2025-10-16 09:42:20 - root - [INFO] - logging_config.py:61 - ================================================================================
+2025-10-16 09:42:20 - root - [INFO] - logging_config.py:62 - Voice Kiosk Application Starting - 2025-10-16 09:42:20
+2025-10-16 09:42:20 - root - [INFO] - logging_config.py:63 - Log level: INFO
+2025-10-16 09:42:20 - root - [INFO] - logging_config.py:64 - ================================================================================
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:27 - Initializing Eel framework
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:688 - ================================================================================
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:689 - VOICE KIOSK APPLICATION STARTING
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:690 - ================================================================================
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:695 - Main event loop created: <_UnixSelectorEventLoop running=False closed=False debug=False>
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:705 - Starting event loop in background thread
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:711 - Event loop thread started
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:660 - Starting async_main()
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:73 - ================================================================================
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:74 - VOICE KIOSK APPLICATION INITIALIZATION
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:75 - ================================================================================
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:79 - Validating configuration...
+2025-10-16 09:42:20 - config - [INFO] - config.py:96 - Validating configuration...
+2025-10-16 09:42:20 - config - [INFO] - config.py:109 - Recordings directory /tmp/voice_kiosk_recordings is writable
+2025-10-16 09:42:20 - config - [INFO] - config.py:129 - Configuration validation passed
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:81 - Configuration validation passed
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:84 - Creating event loop coordinator...
+2025-10-16 09:42:20 - event_loop - [INFO] - event_loop.py:32 - Initializing EventLoopCoordinator
+2025-10-16 09:42:20 - event_loop - [INFO] - event_loop.py:43 - EventLoopCoordinator initialized
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:86 - Event loop coordinator created
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:136 - Registering state callbacks...
+2025-10-16 09:42:20 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state IDLE: on_idle
+2025-10-16 09:42:20 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state RECORDING: on_recording
+2025-10-16 09:42:20 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state THINKING: on_thinking
+2025-10-16 09:42:20 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state SPEAKING: on_speaking
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:163 - State callbacks registered
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:92 - Creating subsystem manager...
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:22 - Initializing SubsystemManager
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:38 - SubsystemManager initialized
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:94 - Subsystem manager created
+2025-10-16 09:42:20 - root - [INFO] - main_new.py:97 - Initializing subsystems...
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:42 - ============================================================
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:43 - Starting subsystem initialization
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:44 - ============================================================
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:88 - Initializing Ollama client...
+2025-10-16 09:42:20 - subsystem_manager - [ERROR] - subsystem_manager.py:108 - Failed to initialize Ollama client: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/subsystem_manager.py", line 92, in _initialize_ollama
+    self.ollama_client = OllamaClient(
+                         ~~~~~~~~~~~~^
+        base_url=self.config.OLLAMA_URL,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        timeout=self.config.OLLAMA_TIMEOUT
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:113 - Initializing Tool Processor...
+2025-10-16 09:42:20 - tool_processor - [INFO] - tool_processor.py:14 - Initializing ToolProcessor
+2025-10-16 09:42:20 - tool_processor - [INFO] - tool_processor.py:20 - Loading tools from tools directory...
+2025-10-16 09:42:20 - tool_processor - [INFO] - tool_processor.py:30 - Found 4 tool file(s)
+2025-10-16 09:42:20 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: get_weather - return the weather for a certain city
+2025-10-16 09:42:20 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: timenow - return the current date and time
+2025-10-16 09:42:20 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: finished - call this when you have completed the user's request
+2025-10-16 09:42:20 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: get_fortune - get a random fortune or quote
+2025-10-16 09:42:20 - tool_processor - [INFO] - tool_processor.py:60 - Tool loading complete: 4 tool(s) loaded
+2025-10-16 09:42:20 - tool_processor - [INFO] - tool_processor.py:16 - ToolProcessor initialized with 4 tools
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:118 - Tool Processor initialized with 4 tools
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: get_weather
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: timenow
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: finished
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: get_fortune
+2025-10-16 09:42:20 - subsystem_manager - [INFO] - subsystem_manager.py:135 - Initializing Whisper STT service...
+2025-10-16 09:42:20 - whisper_service - [INFO] - whisper_service.py:25 - Initializing WhisperService with model: tiny.en
+2025-10-16 09:42:20 - whisper_service - [INFO] - whisper_service.py:38 - Loading Whisper model: tiny.en
+2025-10-16 09:42:21 - whisper_service - [INFO] - whisper_service.py:46 - Whisper model loaded successfully
+2025-10-16 09:42:21 - whisper_service - [INFO] - whisper_service.py:34 - WhisperService initialized (device: cpu, compute_type: int8)
+2025-10-16 09:42:21 - subsystem_manager - [INFO] - subsystem_manager.py:145 - Whisper service initialized (model: tiny.en)
+2025-10-16 09:42:21 - subsystem_manager - [INFO] - subsystem_manager.py:158 - Initializing TTS engine...
+2025-10-16 09:42:21 - subsystem_manager - [ERROR] - subsystem_manager.py:188 - Failed to initialize TTS engine: This means you probably do not have eSpeak or eSpeak-ng installed!
+Traceback (most recent call last):
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/__init__.py", line 22, in init
+    eng = _activeEngines[driverName]
+          ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/weakref.py", line 136, in __getitem__
+    o = self.data[key]()
+        ~~~~~~~~~^^^^^
+KeyError: None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/subsystem_manager.py", line 163, in _initialize_tts
+    self.tts_engine = pyttsx3.init()
+                      ~~~~~~~~~~~~^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/__init__.py", line 24, in init
+    eng = Engine(driverName, debug)
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/engine.py", line 59, in __init__
+    self.proxy = driver.DriverProxy(weakref.proxy(self), self.driver_name, debug)
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/driver.py", line 41, in __init__
+    self._module = importlib.import_module(f"pyttsx3.drivers.{driverName}")
+                   ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/drivers/espeak.py", line 15, in <module>
+    from . import _espeak
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/drivers/_espeak.py", line 61, in <module>
+    raise RuntimeError(msg)
+RuntimeError: This means you probably do not have eSpeak or eSpeak-ng installed!
+2025-10-16 09:42:21 - subsystem_manager - [INFO] - subsystem_manager.py:193 - Initializing Audio Recorder...
+2025-10-16 09:42:21 - audio_recorder - [INFO] - audio_recorder.py:33 - Initializing AudioRecorder
+2025-10-16 09:42:21 - audio_recorder - [INFO] - audio_recorder.py:49 - AudioRecorder initialized: 16000Hz, silence threshold: 2000
+2025-10-16 09:42:21 - subsystem_manager - [INFO] - subsystem_manager.py:207 - Audio Recorder initialized (16000Hz)
+2025-10-16 09:42:21 - subsystem_manager - [INFO] - subsystem_manager.py:220 - Initializing Wake Word Detector...
+2025-10-16 09:42:21 - wake_word_detector - [INFO] - wake_word_detector.py:28 - Initializing WakeWordDetector with model: models/vosk-model-small-en-us-0.15
+2025-10-16 09:42:21 - wake_word_detector - [INFO] - wake_word_detector.py:45 - Loading Vosk model from models/vosk-model-small-en-us-0.15
+2025-10-16 09:42:22 - wake_word_detector - [INFO] - wake_word_detector.py:56 - Vosk model loaded successfully
+2025-10-16 09:42:22 - wake_word_detector - [INFO] - wake_word_detector.py:41 - WakeWordDetector initialized for word: 'hal'
+2025-10-16 09:42:22 - subsystem_manager - [INFO] - subsystem_manager.py:238 - Wake Word Detector initialized (word: 'hal')
+2025-10-16 09:42:22 - subsystem_manager - [ERROR] - subsystem_manager.py:67 - Subsystem initialization completed with 2 error(s):
+2025-10-16 09:42:22 - subsystem_manager - [ERROR] - subsystem_manager.py:69 -   - Failed to initialize Ollama client: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+2025-10-16 09:42:22 - subsystem_manager - [ERROR] - subsystem_manager.py:69 -   - Failed to initialize TTS engine: This means you probably do not have eSpeak or eSpeak-ng installed!
+2025-10-16 09:42:22 - subsystem_manager - [INFO] - subsystem_manager.py:80 - ============================================================
+2025-10-16 09:42:22 - subsystem_manager - [INFO] - subsystem_manager.py:81 - Subsystem initialization complete. Ready: False
+2025-10-16 09:42:22 - subsystem_manager - [INFO] - subsystem_manager.py:82 - ============================================================
+2025-10-16 09:42:22 - root - [ERROR] - main_new.py:101 - Subsystem initialization failed!
+2025-10-16 09:42:22 - root - [ERROR] - main_new.py:130 - Fatal error during initialization: Failed to initialize subsystems
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/main_new.py", line 102, in initialize_application
+    raise RuntimeError("Failed to initialize subsystems")
+RuntimeError: Failed to initialize subsystems
+2025-10-16 09:42:22 - root - [ERROR] - main_new.py:666 - Application initialization failed, exiting
+2025-10-16 09:42:22 - root - [INFO] - main_new.py:719 - Starting Eel web interface...
+2025-10-16 09:42:23 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:23] "GET /index.html HTTP/1.1" 200 689 0.005382
+2025-10-16 09:42:23 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:23] "GET /app.js HTTP/1.1" 200 4061 0.000767
+2025-10-16 09:42:23 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:23] "GET /eel.js HTTP/1.1" 200 6153 0.000785
+2025-10-16 09:42:23 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:23] "GET /style.css HTTP/1.1" 200 3973 0.000629
+2025-10-16 09:42:23 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:23] "GET /favicon.ico HTTP/1.1" 404 882 0.007584
+2025-10-16 09:42:23 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:23] "GET /assets/faces/smile_eyes_opened.png HTTP/1.1" 200 38956 0.002056
+2025-10-16 09:42:28 - root - [INFO] - main_new.py:498 - Screen clicked in state: BOOT
+2025-10-16 09:42:28 - root - [INFO] - main_new.py:526 - Starting boot sequence...
+2025-10-16 09:42:28 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:28] "GET /assets/fonts/instrument-serif/instrument-serif-v4-latin-regular.woff2 HTTP/1.1" 404 940 0.000521
+2025-10-16 09:42:29 - root - [INFO] - main_new.py:541 - Generating boot greeting...
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001760
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.002755
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000760
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000566
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000587
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001422
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000735
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001782
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000972
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001869
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000741
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001979
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000784
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001384
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000675
+2025-10-16 09:42:29 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:29] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001707
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000740
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001698
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000742
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000765
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000637
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001075
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000561
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.002177
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000536
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001251
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001142
+2025-10-16 09:42:30 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:30] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001584
+2025-10-16 09:42:31 - event_loop - [INFO] - event_loop.py:72 - State transition: BOOT -> IDLE
+2025-10-16 09:42:31 - event_loop - [INFO] - event_loop.py:135 - Executing 1 callback(s) for state IDLE
+2025-10-16 09:42:31 - root - [INFO] - main_new.py:140 - Entered IDLE state - starting wake word listener
+2025-10-16 09:42:31 - root - [INFO] - main_new.py:178 - Starting wake word listener...
+2025-10-16 09:42:31 - subsystem_manager - [INFO] - subsystem_manager.py:259 - Starting wake word listener...
+2025-10-16 09:42:31 - event_loop - [INFO] - event_loop.py:159 - Creating background task: wake_word_listener
+2025-10-16 09:42:31 - subsystem_manager - [INFO] - subsystem_manager.py:265 - Wake word listener started
+2025-10-16 09:42:31 - root - [INFO] - main_new.py:205 - Wake word listener started successfully
+2025-10-16 09:42:31 - event_loop - [INFO] - event_loop.py:87 - State transition complete: now in IDLE
+2025-10-16 09:42:31 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 09:42:31] "GET /assets/faces/smile_eyes_opened.png HTTP/1.1" 200 38956 0.000791
+2025-10-16 09:42:31 - root - [INFO] - main_new.py:569 - Boot sequence complete
+2025-10-16 09:42:31 - wake_word_detector - [INFO] - wake_word_detector.py:82 - Starting wake word detection...
+2025-10-16 09:42:31 - wake_word_detector - [INFO] - wake_word_detector.py:87 - Opening audio stream (rate: 16000Hz)
+2025-10-16 09:42:31 - wake_word_detector - [INFO] - wake_word_detector.py:97 - Wake word detector listening...
+2025-10-16 09:45:49 - root - [INFO] - main_new.py:735 - Shutting down event loop...
+2025-10-16 09:45:49 - root - [INFO] - main_new.py:707 - Event loop stopped
+2025-10-16 09:45:49 - root - [INFO] - main_new.py:738 - Application exit
+2025-10-16 10:11:39 - root - [INFO] - logging_config.py:61 - ================================================================================
+2025-10-16 10:11:39 - root - [INFO] - logging_config.py:62 - Voice Kiosk Application Starting - 2025-10-16 10:11:39
+2025-10-16 10:11:39 - root - [INFO] - logging_config.py:63 - Log level: INFO
+2025-10-16 10:11:39 - root - [INFO] - logging_config.py:64 - ================================================================================
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:27 - Initializing Eel framework
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:688 - ================================================================================
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:689 - VOICE KIOSK APPLICATION STARTING
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:690 - ================================================================================
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:695 - Main event loop created: <_UnixSelectorEventLoop running=False closed=False debug=False>
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:705 - Starting event loop in background thread
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:711 - Event loop thread started
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:660 - Starting async_main()
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:73 - ================================================================================
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:74 - VOICE KIOSK APPLICATION INITIALIZATION
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:75 - ================================================================================
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:79 - Validating configuration...
+2025-10-16 10:11:39 - config - [INFO] - config.py:97 - Validating configuration...
+2025-10-16 10:11:39 - config - [INFO] - config.py:110 - Recordings directory /tmp/voice_kiosk_recordings is writable
+2025-10-16 10:11:39 - config - [INFO] - config.py:130 - Configuration validation passed
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:81 - Configuration validation passed
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:84 - Creating event loop coordinator...
+2025-10-16 10:11:39 - event_loop - [INFO] - event_loop.py:32 - Initializing EventLoopCoordinator
+2025-10-16 10:11:39 - event_loop - [INFO] - event_loop.py:43 - EventLoopCoordinator initialized
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:86 - Event loop coordinator created
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:136 - Registering state callbacks...
+2025-10-16 10:11:39 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state IDLE: on_idle
+2025-10-16 10:11:39 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state RECORDING: on_recording
+2025-10-16 10:11:39 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state THINKING: on_thinking
+2025-10-16 10:11:39 - event_loop - [INFO] - event_loop.py:125 - Registered callback for state SPEAKING: on_speaking
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:163 - State callbacks registered
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:92 - Creating subsystem manager...
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:22 - Initializing SubsystemManager
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:38 - SubsystemManager initialized
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:94 - Subsystem manager created
+2025-10-16 10:11:39 - root - [INFO] - main_new.py:97 - Initializing subsystems...
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:42 - ============================================================
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:43 - Starting subsystem initialization
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:44 - ============================================================
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:88 - Initializing Ollama client...
+2025-10-16 10:11:39 - subsystem_manager - [ERROR] - subsystem_manager.py:108 - Failed to initialize Ollama client: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/subsystem_manager.py", line 92, in _initialize_ollama
+    self.ollama_client = OllamaClient(
+                         ~~~~~~~~~~~~^
+        base_url=self.config.OLLAMA_URL,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        timeout=self.config.OLLAMA_TIMEOUT
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+TypeError: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:113 - Initializing Tool Processor...
+2025-10-16 10:11:39 - tool_processor - [INFO] - tool_processor.py:14 - Initializing ToolProcessor
+2025-10-16 10:11:39 - tool_processor - [INFO] - tool_processor.py:20 - Loading tools from tools directory...
+2025-10-16 10:11:39 - tool_processor - [INFO] - tool_processor.py:30 - Found 4 tool file(s)
+2025-10-16 10:11:39 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: get_weather - return the weather for a certain city
+2025-10-16 10:11:39 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: timenow - return the current date and time
+2025-10-16 10:11:39 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: finished - call this when you have completed the user's request
+2025-10-16 10:11:39 - tool_processor - [INFO] - tool_processor.py:53 - Loaded tool: get_fortune - get a random fortune or quote
+2025-10-16 10:11:39 - tool_processor - [INFO] - tool_processor.py:60 - Tool loading complete: 4 tool(s) loaded
+2025-10-16 10:11:39 - tool_processor - [INFO] - tool_processor.py:16 - ToolProcessor initialized with 4 tools
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:118 - Tool Processor initialized with 4 tools
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: get_weather
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: timenow
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: finished
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:122 -   - Tool registered: get_fortune
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:135 - Initializing Whisper STT service...
+2025-10-16 10:11:39 - whisper_service - [INFO] - whisper_service.py:25 - Initializing WhisperService with model: tiny.en
+2025-10-16 10:11:39 - whisper_service - [INFO] - whisper_service.py:38 - Loading Whisper model: tiny.en
+2025-10-16 10:11:39 - whisper_service - [INFO] - whisper_service.py:46 - Whisper model loaded successfully
+2025-10-16 10:11:39 - whisper_service - [INFO] - whisper_service.py:34 - WhisperService initialized (device: cpu, compute_type: int8)
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:145 - Whisper service initialized (model: tiny.en)
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:158 - Initializing TTS engine...
+2025-10-16 10:11:39 - subsystem_manager - [ERROR] - subsystem_manager.py:188 - Failed to initialize TTS engine: This means you probably do not have eSpeak or eSpeak-ng installed!
+Traceback (most recent call last):
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/__init__.py", line 22, in init
+    eng = _activeEngines[driverName]
+          ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/weakref.py", line 136, in __getitem__
+    o = self.data[key]()
+        ~~~~~~~~~^^^^^
+KeyError: None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/subsystem_manager.py", line 163, in _initialize_tts
+    self.tts_engine = pyttsx3.init()
+                      ~~~~~~~~~~~~^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/__init__.py", line 24, in init
+    eng = Engine(driverName, debug)
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/engine.py", line 59, in __init__
+    self.proxy = driver.DriverProxy(weakref.proxy(self), self.driver_name, debug)
+                 ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/driver.py", line 41, in __init__
+    self._module = importlib.import_module(f"pyttsx3.drivers.{driverName}")
+                   ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/drivers/espeak.py", line 15, in <module>
+    from . import _espeak
+  File "/home/hal/hal/venv/lib/python3.13/site-packages/pyttsx3/drivers/_espeak.py", line 61, in <module>
+    raise RuntimeError(msg)
+RuntimeError: This means you probably do not have eSpeak or eSpeak-ng installed!
+2025-10-16 10:11:39 - subsystem_manager - [INFO] - subsystem_manager.py:193 - Initializing Audio Recorder...
+2025-10-16 10:11:40 - audio_recorder - [INFO] - audio_recorder.py:33 - Initializing AudioRecorder
+2025-10-16 10:11:40 - audio_recorder - [INFO] - audio_recorder.py:49 - AudioRecorder initialized: 48000Hz, silence threshold: 2000
+2025-10-16 10:11:40 - subsystem_manager - [INFO] - subsystem_manager.py:207 - Audio Recorder initialized (48000Hz)
+2025-10-16 10:11:40 - subsystem_manager - [INFO] - subsystem_manager.py:220 - Initializing Wake Word Detector...
+2025-10-16 10:11:40 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:30 - Initializing WakeWordDetectorAmplified with model: models/vosk-model-small-en-us-0.15
+2025-10-16 10:11:40 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:31 - Amplification factor: 300.0x
+2025-10-16 10:11:40 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:49 - Loading Vosk model from models/vosk-model-small-en-us-0.15
+2025-10-16 10:11:40 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:60 - Vosk model loaded successfully
+2025-10-16 10:11:40 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:45 - WakeWordDetectorAmplified initialized for word: 'hal'
+2025-10-16 10:11:40 - subsystem_manager - [INFO] - subsystem_manager.py:243 - Wake Word Detector initialized (word: 'hal', amp: 300.0x)
+2025-10-16 10:11:40 - subsystem_manager - [ERROR] - subsystem_manager.py:67 - Subsystem initialization completed with 2 error(s):
+2025-10-16 10:11:40 - subsystem_manager - [ERROR] - subsystem_manager.py:69 -   - Failed to initialize Ollama client: OllamaClient.__init__() got an unexpected keyword argument 'timeout'
+2025-10-16 10:11:40 - subsystem_manager - [ERROR] - subsystem_manager.py:69 -   - Failed to initialize TTS engine: This means you probably do not have eSpeak or eSpeak-ng installed!
+2025-10-16 10:11:40 - subsystem_manager - [INFO] - subsystem_manager.py:80 - ============================================================
+2025-10-16 10:11:40 - subsystem_manager - [INFO] - subsystem_manager.py:81 - Subsystem initialization complete. Ready: False
+2025-10-16 10:11:40 - subsystem_manager - [INFO] - subsystem_manager.py:82 - ============================================================
+2025-10-16 10:11:40 - root - [ERROR] - main_new.py:101 - Subsystem initialization failed!
+2025-10-16 10:11:40 - root - [ERROR] - main_new.py:130 - Fatal error during initialization: Failed to initialize subsystems
+Traceback (most recent call last):
+  File "/home/hal/hal/voice-kiosk/main_new.py", line 102, in initialize_application
+    raise RuntimeError("Failed to initialize subsystems")
+RuntimeError: Failed to initialize subsystems
+2025-10-16 10:11:40 - root - [ERROR] - main_new.py:666 - Application initialization failed, exiting
+2025-10-16 10:11:41 - root - [INFO] - main_new.py:719 - Starting Eel web interface...
+2025-10-16 10:11:41 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:41] "GET /index.html HTTP/1.1" 200 689 0.004432
+2025-10-16 10:11:41 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:41] "GET /style.css HTTP/1.1" 200 3973 0.001383
+2025-10-16 10:11:41 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:41] "GET /app.js HTTP/1.1" 200 4061 0.001096
+2025-10-16 10:11:41 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:41] "GET /eel.js HTTP/1.1" 200 6153 0.000922
+2025-10-16 10:11:41 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:41] "GET /favicon.ico HTTP/1.1" 404 882 0.004373
+2025-10-16 10:11:41 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:41] "GET /assets/faces/smile_eyes_opened.png HTTP/1.1" 200 38956 0.001000
+2025-10-16 10:11:47 - root - [INFO] - main_new.py:498 - Screen clicked in state: BOOT
+2025-10-16 10:11:47 - root - [INFO] - main_new.py:526 - Starting boot sequence...
+2025-10-16 10:11:47 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:47] "GET /assets/fonts/instrument-serif/instrument-serif-v4-latin-regular.woff2 HTTP/1.1" 404 940 0.001205
+2025-10-16 10:11:48 - root - [INFO] - main_new.py:541 - Generating boot greeting...
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.003414
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001467
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000570
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000573
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000730
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.002634
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000522
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.002187
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000597
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001423
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000646
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.002968
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000519
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.002286
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001465
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001772
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000919
+2025-10-16 10:11:48 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:48] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.002046
+2025-10-16 10:11:49 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:49] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000625
+2025-10-16 10:11:49 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:49] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.003057
+2025-10-16 10:11:49 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:49] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.000705
+2025-10-16 10:11:49 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:49] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.001016
+2025-10-16 10:11:49 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:49] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000837
+2025-10-16 10:11:49 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:49] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.003051
+2025-10-16 10:11:49 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:49] "GET /assets/speaking/still.png HTTP/1.1" 200 35967 0.000603
+2025-10-16 10:11:49 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:49] "GET /assets/speaking/open1.png HTTP/1.1" 200 17206 0.001370
+2025-10-16 10:11:50 - event_loop - [INFO] - event_loop.py:72 - State transition: BOOT -> IDLE
+2025-10-16 10:11:50 - event_loop - [INFO] - event_loop.py:135 - Executing 1 callback(s) for state IDLE
+2025-10-16 10:11:50 - root - [INFO] - main_new.py:140 - Entered IDLE state - starting wake word listener
+2025-10-16 10:11:50 - root - [INFO] - main_new.py:178 - Starting wake word listener...
+2025-10-16 10:11:50 - subsystem_manager - [INFO] - subsystem_manager.py:264 - Starting wake word listener...
+2025-10-16 10:11:50 - event_loop - [INFO] - event_loop.py:159 - Creating background task: wake_word_listener
+2025-10-16 10:11:50 - subsystem_manager - [INFO] - subsystem_manager.py:270 - Wake word listener started
+2025-10-16 10:11:50 - root - [INFO] - main_new.py:205 - Wake word listener started successfully
+2025-10-16 10:11:50 - event_loop - [INFO] - event_loop.py:87 - State transition complete: now in IDLE
+2025-10-16 10:11:50 - root - [INFO] - main_new.py:569 - Boot sequence complete
+2025-10-16 10:11:50 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:118 - Starting amplified wake word detection...
+2025-10-16 10:11:50 - geventwebsocket.handler - [INFO] - handler.py:242 - 127.0.0.1 - - [2025-10-16 10:11:50] "GET /assets/faces/smile_eyes_opened.png HTTP/1.1" 200 38956 0.001725
+2025-10-16 10:11:50 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:126 - Opening audio stream (rate: 48000Hz, blocksize: 48000)
+2025-10-16 10:11:50 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:127 - Software amplification: 300.0x
+2025-10-16 10:11:50 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:140 - Wake word detector listening with amplification...
+2025-10-16 10:11:58 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:155 - Recognized: 'time is up'
+2025-10-16 10:12:02 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:12:08 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:12:17 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:155 - Recognized: 'wow'
+2025-10-16 10:12:23 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:155 - Recognized: 'how'
+2025-10-16 10:12:29 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:12:30 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:155 - Recognized: 'yeah'
+2025-10-16 10:12:33 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:12:38 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:12:41 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:12:42 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:155 - Recognized: 'ty'
+2025-10-16 10:12:48 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:12:57 - wake_word_detector_amplified - [INFO] - wake_word_detector_amplified.py:155 - Recognized: 'well'
+2025-10-16 10:13:14 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:13:19 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:13:26 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:13:29 - wake_word_detector_amplified - [WARNING] - wake_word_detector_amplified.py:95 - Audio buffer overflow (dropping frames)
+2025-10-16 10:13:38 - root - [INFO] - main_new.py:735 - Shutting down event loop...
+2025-10-16 10:13:38 - root - [INFO] - main_new.py:707 - Event loop stopped
+2025-10-16 10:13:38 - root - [INFO] - main_new.py:738 - Application exit

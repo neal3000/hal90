@@ -1,0 +1,13 @@
+0: vc4-hdmi-0: MAI PCM i2s-hifi-0 (hw:0,0)
+1: vc4-hdmi-1: MAI PCM i2s-hifi-0 (hw:1,0)
+2: USB PnP Sound Device: Audio (hw:2,0)
+3: sysdefault
+4: hdmi
+5: lavrate
+6: samplerate
+7: speexrate
+8: pulse
+9: speex
+10: upmix
+11: vdownmix
+12: default

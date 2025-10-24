@@ -1,0 +1,731 @@
+{
+  "version": "1.0",
+  "initial_screen": "home",
+
+  "styles": {
+    "primary-button": {
+      "backgroundColor": "#667eea",
+      "color": "white",
+      "fontSize": "24px",
+      "padding": "20px 40px",
+      "borderRadius": "12px",
+      "border": "none",
+      "minWidth": "200px",
+      "minHeight": "80px",
+      "touchAction": "manipulation"
+    },
+    "back-button": {
+      "backgroundColor": "#6c757d",
+      "color": "white",
+      "fontSize": "18px",
+      "padding": "12px 24px",
+      "borderRadius": "8px",
+      "border": "none"
+    },
+    "action-button": {
+      "backgroundColor": "#28a745",
+      "color": "white",
+      "fontSize": "18px",
+      "padding": "12px 24px",
+      "borderRadius": "8px",
+      "border": "none",
+      "marginRight": "10px"
+    },
+    "heading": {
+      "fontSize": "32px",
+      "fontWeight": "bold",
+      "marginBottom": "30px",
+      "color": "#333"
+    },
+    "status-text": {
+      "fontSize": "18px",
+      "color": "#666",
+      "padding": "10px",
+      "marginBottom": "20px"
+    },
+    "grid-list": {
+      "display": "grid",
+      "gridTemplateColumns": "repeat(auto-fill, minmax(200px, 1fr))",
+      "gap": "20px",
+      "padding": "20px"
+    },
+    "list-item": {
+      "backgroundColor": "#f8f9fa",
+      "padding": "20px",
+      "borderRadius": "8px",
+      "cursor": "pointer",
+      "border": "2px solid transparent",
+      "transition": "all 0.2s"
+    },
+    "list-item:hover": {
+      "backgroundColor": "#e9ecef",
+      "borderColor": "#667eea"
+    },
+    "list-item:active": {
+      "transform": "scale(0.98)"
+    }
+  },
+
+  "screens": {
+    "home": {
+      "title": "HAL Control Center",
+      "layout": "vertical",
+      "components": [
+        {
+          "type": "text",
+          "content": "HAL Control Center",
+          "style": "heading"
+        },
+        {
+          "type": "spacer",
+          "height": "20px"
+        },
+        {
+          "type": "button",
+          "name": "🎬 Movies",
+          "style": "primary-button",
+          "action": {
+            "type": "navigate",
+            "target": "movies-screen"
+          }
+        },
+        {
+          "type": "spacer",
+          "height": "20px"
+        },
+        {
+          "type": "button",
+          "name": "💡 Smart Lights",
+          "style": "primary-button",
+          "action": {
+            "type": "navigate",
+            "target": "lights-screen"
+          }
+        },
+        {
+          "type": "spacer",
+          "height": "20px"
+        },
+        {
+          "type": "button",
+          "name": "🌤️ Weather",
+          "style": "primary-button",
+          "action": {
+            "type": "navigate",
+            "target": "weather-screen"
+          }
+        }
+      ]
+    },
+
+    "movies-screen": {
+      "title": "Movies",
+      "layout": "vertical",
+      "components": [
+        {
+          "type": "container",
+          "layout": "horizontal",
+          "components": [
+            {
+              "type": "button",
+              "name": "← Back",
+              "style": "back-button",
+              "action": {
+                "type": "navigate",
+                "target": "home"
+              }
+            },
+            {
+              "type": "spacer",
+              "width": "20px"
+            },
+            {
+              "type": "button",
+              "name": "🔄 Refresh",
+              "style": "action-button",
+              "action": {
+                "type": "mcp",
+                "server": "media-server",
+                "tool": "list_movies",
+                "params": {},
+                "target": "movie-list"
+              }
+            },
+            {
+              "type": "button",
+              "name": "🎲 Random Movie",
+              "style": "action-button",
+              "action": {
+                "type": "mcp",
+                "server": "media-server",
+                "tool": "suggest_movie",
+                "params": {},
+                "target": "movie-suggestion-text"
+              }
+            }
+          ]
+        },
+        {
+          "type": "spacer",
+          "height": "20px"
+        },
+        {
+          "type": "text",
+          "id": "movie-suggestion-text",
+          "content": "",
+          "style": "status-text"
+        },
+        {
+          "type": "list",
+          "id": "movie-list",
+          "style": "grid-list",
+          "autoLoad": {
+            "type": "mcp",
+            "server": "media-server",
+            "tool": "list_movies",
+            "params": {}
+          },
+          "itemTemplate": {
+            "type": "card",
+            "layout": "vertical",
+            "style": "list-item",
+            "components": [
+              {
+                "type": "text",
+                "content": "{item.name}",
+                "style": {
+                  "fontSize": "18px",
+                  "fontWeight": "bold",
+                  "marginBottom": "8px"
+                }
+              },
+              {
+                "type": "text",
+                "content": "{item.size}",
+                "style": {
+                  "fontSize": "14px",
+                  "color": "#999"
+                }
+              }
+            ]
+          },
+          "onSelect": {
+            "type": "popup",
+            "title": "Play Movie",
+            "components": [
+              {
+                "type": "text",
+                "content": "Play: {selected.name}?",
+                "style": {
+                  "fontSize": "20px",
+                  "marginBottom": "20px"
+                }
+              },
+              {
+                "type": "container",
+                "layout": "horizontal",
+                "components": [
+                  {
+                    "type": "button",
+                    "name": "▶️ Play",
+                    "style": "action-button",
+                    "action": {
+                      "type": "mcp",
+                      "server": "media-server",
+                      "tool": "play_movie",
+                      "params": {
+                        "filename": "{selected.name}"
+                      },
+                      "onComplete": {
+                        "type": "close_popup"
+                      }
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "name": "🔁 Loop",
+                    "style": "action-button",
+                    "action": {
+                      "type": "mcp",
+                      "server": "media-server",
+                      "tool": "play_movie",
+                      "params": {
+                        "filename": "{selected.name}",
+                        "loop": "yes"
+                      },
+                      "onComplete": {
+                        "type": "close_popup"
+                      }
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "name": "Cancel",
+                    "style": "back-button",
+                    "action": {
+                      "type": "close_popup"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "spacer",
+          "height": "30px"
+        },
+        {
+          "type": "text",
+          "content": "Playback Controls",
+          "style": {
+            "fontSize": "20px",
+            "fontWeight": "bold",
+            "marginBottom": "15px"
+          }
+        },
+        {
+          "type": "container",
+          "layout": "horizontal",
+          "components": [
+            {
+              "type": "button",
+              "name": "⏸️ Pause",
+              "style": "action-button",
+              "action": {
+                "type": "mcp",
+                "server": "media-server",
+                "tool": "pause_playback",
+                "params": {}
+              }
+            },
+            {
+              "type": "button",
+              "name": "⏹️ Stop",
+              "style": "action-button",
+              "action": {
+                "type": "mcp",
+                "server": "media-server",
+                "tool": "stop_playback",
+                "params": {}
+              }
+            },
+            {
+              "type": "button",
+              "name": "⏪ -30s",
+              "style": "action-button",
+              "action": {
+                "type": "mcp",
+                "server": "media-server",
+                "tool": "seek_backward",
+                "params": {
+                  "seconds": "30"
+                }
+              }
+            },
+            {
+              "type": "button",
+              "name": "⏩ +30s",
+              "style": "action-button",
+              "action": {
+                "type": "mcp",
+                "server": "media-server",
+                "tool": "seek_forward",
+                "params": {
+                  "seconds": "30"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    "lights-screen": {
+      "title": "Smart Lights",
+      "layout": "vertical",
+      "components": [
+        {
+          "type": "container",
+          "layout": "horizontal",
+          "components": [
+            {
+              "type": "button",
+              "name": "← Back",
+              "style": "back-button",
+              "action": {
+                "type": "navigate",
+                "target": "home"
+              }
+            },
+            {
+              "type": "spacer",
+              "width": "20px"
+            },
+            {
+              "type": "button",
+              "name": "🔍 Scan Devices",
+              "style": "action-button",
+              "action": {
+                "type": "mcp",
+                "server": "lights",
+                "tool": "scan_devices",
+                "params": {},
+                "target": "status-text",
+                "onComplete": {
+                  "type": "mcp",
+                  "server": "lights",
+                  "tool": "list_devices",
+                  "params": {},
+                  "target": "device-list"
+                }
+              }
+            },
+            {
+              "type": "button",
+              "name": "🔄 Refresh",
+              "style": "action-button",
+              "action": {
+                "type": "mcp",
+                "server": "lights",
+                "tool": "list_devices",
+                "params": {},
+                "target": "device-list"
+              }
+            }
+          ]
+        },
+        {
+          "type": "spacer",
+          "height": "20px"
+        },
+        {
+          "type": "text",
+          "id": "status-text",
+          "content": "Ready",
+          "style": "status-text"
+        },
+        {
+          "type": "list",
+          "id": "device-list",
+          "style": "grid-list",
+          "autoLoad": {
+            "type": "mcp",
+            "server": "lights",
+            "tool": "list_devices",
+            "params": {}
+          },
+          "itemTemplate": {
+            "type": "card",
+            "layout": "vertical",
+            "style": "list-item",
+            "components": [
+              {
+                "type": "image",
+                "src": "/icons/bulb.png",
+                "alt": "Light",
+                "style": {
+                  "width": "64px",
+                  "height": "64px",
+                  "marginBottom": "10px"
+                }
+              },
+              {
+                "type": "text",
+                "content": "{item.name}",
+                "style": {
+                  "fontSize": "18px",
+                  "fontWeight": "bold",
+                  "marginBottom": "8px"
+                }
+              },
+              {
+                "type": "text",
+                "content": "Status: {item.status}",
+                "style": {
+                  "fontSize": "14px",
+                  "color": "#999",
+                  "marginBottom": "15px"
+                }
+              },
+              {
+                "type": "container",
+                "layout": "horizontal",
+                "components": [
+                  {
+                    "type": "button",
+                    "name": "💡 On",
+                    "style": {
+                      "backgroundColor": "#ffc107",
+                      "color": "white",
+                      "fontSize": "14px",
+                      "padding": "8px 16px",
+                      "borderRadius": "6px",
+                      "border": "none",
+                      "marginRight": "8px"
+                    },
+                    "action": {
+                      "type": "mcp",
+                      "server": "lights",
+                      "tool": "turn_on",
+                      "params": {
+                        "device_name": "{item.name}"
+                      },
+                      "onComplete": {
+                        "type": "refresh_list",
+                        "target": "device-list"
+                      }
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "name": "⚫ Off",
+                    "style": {
+                      "backgroundColor": "#6c757d",
+                      "color": "white",
+                      "fontSize": "14px",
+                      "padding": "8px 16px",
+                      "borderRadius": "6px",
+                      "border": "none"
+                    },
+                    "action": {
+                      "type": "mcp",
+                      "server": "lights",
+                      "tool": "turn_off",
+                      "params": {
+                        "device_name": "{item.name}"
+                      },
+                      "onComplete": {
+                        "type": "refresh_list",
+                        "target": "device-list"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "onSelect": {
+            "type": "popup",
+            "title": "Device Control",
+            "components": [
+              {
+                "type": "text",
+                "content": "{selected.name}",
+                "style": {
+                  "fontSize": "24px",
+                  "fontWeight": "bold",
+                  "marginBottom": "20px"
+                }
+              },
+              {
+                "type": "text",
+                "content": "Choose Color:",
+                "style": {
+                  "fontSize": "18px",
+                  "marginBottom": "15px"
+                }
+              },
+              {
+                "type": "container",
+                "layout": "horizontal",
+                "wrap": true,
+                "components": [
+                  {
+                    "type": "button",
+                    "name": "🔴 Red",
+                    "style": {
+                      "backgroundColor": "#dc3545",
+                      "color": "white",
+                      "margin": "5px"
+                    },
+                    "action": {
+                      "type": "mcp",
+                      "server": "lights",
+                      "tool": "set_color",
+                      "params": {
+                        "device_name": "{selected.name}",
+                        "color": "red"
+                      },
+                      "onComplete": {
+                        "type": "close_popup"
+                      }
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "name": "🟢 Green",
+                    "style": {
+                      "backgroundColor": "#28a745",
+                      "color": "white",
+                      "margin": "5px"
+                    },
+                    "action": {
+                      "type": "mcp",
+                      "server": "lights",
+                      "tool": "set_color",
+                      "params": {
+                        "device_name": "{selected.name}",
+                        "color": "green"
+                      },
+                      "onComplete": {
+                        "type": "close_popup"
+                      }
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "name": "🔵 Blue",
+                    "style": {
+                      "backgroundColor": "#007bff",
+                      "color": "white",
+                      "margin": "5px"
+                    },
+                    "action": {
+                      "type": "mcp",
+                      "server": "lights",
+                      "tool": "set_color",
+                      "params": {
+                        "device_name": "{selected.name}",
+                        "color": "blue"
+                      },
+                      "onComplete": {
+                        "type": "close_popup"
+                      }
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "name": "⚪ White",
+                    "style": {
+                      "backgroundColor": "#f8f9fa",
+                      "color": "black",
+                      "border": "1px solid #dee2e6",
+                      "margin": "5px"
+                    },
+                    "action": {
+                      "type": "mcp",
+                      "server": "lights",
+                      "tool": "set_color",
+                      "params": {
+                        "device_name": "{selected.name}",
+                        "color": "white"
+                      },
+                      "onComplete": {
+                        "type": "close_popup"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "spacer",
+                "height": "20px"
+              },
+              {
+                "type": "button",
+                "name": "Close",
+                "style": "back-button",
+                "action": {
+                  "type": "close_popup"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+
+    "weather-screen": {
+      "title": "Weather",
+      "layout": "vertical",
+      "components": [
+        {
+          "type": "button",
+          "name": "← Back",
+          "style": "back-button",
+          "action": {
+            "type": "navigate",
+            "target": "home"
+          }
+        },
+        {
+          "type": "spacer",
+          "height": "30px"
+        },
+        {
+          "type": "text",
+          "content": "Current Weather",
+          "style": "heading"
+        },
+        {
+          "type": "button",
+          "name": "🌡️ Get Current Weather",
+          "style": "action-button",
+          "action": {
+            "type": "mcp",
+            "server": "weather",
+            "tool": "get_current_weather",
+            "params": {},
+            "target": "current-weather-text"
+          }
+        },
+        {
+          "type": "spacer",
+          "height": "20px"
+        },
+        {
+          "type": "text",
+          "id": "current-weather-text",
+          "content": "Click button to load weather...",
+          "style": {
+            "fontSize": "18px",
+            "padding": "20px",
+            "backgroundColor": "#f8f9fa",
+            "borderRadius": "8px",
+            "minHeight": "100px",
+            "whiteSpace": "pre-wrap"
+          }
+        },
+        {
+          "type": "spacer",
+          "height": "30px"
+        },
+        {
+          "type": "text",
+          "content": "Forecast",
+          "style": "heading"
+        },
+        {
+          "type": "button",
+          "name": "📅 Get Forecast",
+          "style": "action-button",
+          "action": {
+            "type": "mcp",
+            "server": "weather",
+            "tool": "get_weather_forecast",
+            "params": {},
+            "target": "forecast-text"
+          }
+        },
+        {
+          "type": "spacer",
+          "height": "20px"
+        },
+        {
+          "type": "text",
+          "id": "forecast-text",
+          "content": "Click button to load forecast...",
+          "style": {
+            "fontSize": "18px",
+            "padding": "20px",
+            "backgroundColor": "#f8f9fa",
+            "borderRadius": "8px",
+            "minHeight": "150px",
+            "whiteSpace": "pre-wrap"
+          }
+        }
+      ]
+    }
+  }
+}

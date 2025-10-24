@@ -89,6 +89,14 @@ class Config:
         self.AGENT_TIMEOUT = int(os.getenv('AGENT_TIMEOUT', '60'))
         logger.info(f"Agent: max {self.AGENT_MAX_ITERATIONS} iterations, {self.AGENT_TIMEOUT}s timeout")
 
+        # MCP Configuration
+        self.MCP_SERVERS_CONFIG = os.getenv('MCP_SERVERS_CONFIG',
+                                             str(Path(__file__).parent.parent / 'mcp-servers.json'))
+        self.MCP_INTENT_MAPPING = os.getenv('MCP_INTENT_MAPPING',
+                                             str(Path(__file__).parent.parent / 'intent-mapping.json'))
+        logger.info(f"MCP servers config: {self.MCP_SERVERS_CONFIG}")
+        logger.info(f"MCP intent mapping: {self.MCP_INTENT_MAPPING}")
+
         # UI Configuration
         self.UI_WIDTH = int(os.getenv('UI_WIDTH', '1024'))
         self.UI_HEIGHT = int(os.getenv('UI_HEIGHT', '768'))
